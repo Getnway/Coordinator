@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_gray_trans">#40ededed</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="red">#FFFF0000</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="google_red">#ffc93437</color>
+    <color name="google_blue">#ff375Bf1</color>
+    <color name="google_yellow">#fff7d23e</color>
+    <color name="google_green">#ff34a350</color>
+    <color name="google_blue_grey">#455A64</color>
+
+    <color name="loading_text_color">#999999</color>
+    <color name="loading_btn_press">#2a9365</color>
+    <color name="loading_btn_disable">#80cbaa</color>
+    <color name="loading_btn_normal">#28a76f</color>
+
+    <array name="google_colors">
+        <item>@color/google_red</item>
+        <item>@color/google_blue</item>
+        <item>@color/google_yellow</item>
+        <item>@color/google_green</item>
+    </array>
+
+</resources>
