@@ -2,7 +2,10 @@ package com.example.coordinator;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends FragmentActivity {
     private static final String TAG = "MyBehavior";
     private static final int COLLAPSING = 120;
     private static final int TEAM_NAME_PADDING_BOTTOM_START = 30;
@@ -24,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout ll_host;
     private LinearLayout ll_guest;
     private RelativeLayout rl_match_score;
+    private ViewPager view_pager;
+    private List<Fragment> fragments = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,32 @@ public class MainActivity extends AppCompatActivity {
         ll_host = (LinearLayout) findViewById(R.id.ll_host);
         ll_guest = (LinearLayout) findViewById(R.id.ll_guest);
         rl_match_score = (RelativeLayout) findViewById(R.id.rl_match_score);
+        view_pager = (ViewPager) findViewById(R.id.view_pager);
 
+        initTab();
+        initListener();
+    }
+
+    private void initTab() {
+        fragments.add(new ScrollFragment());
+        fragments.add(new WeexFragment());
+
+        FragmentPagerAdapter adapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return fragments.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return fragments.size();
+            }
+        };
+        view_pager.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void initListener() {
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {

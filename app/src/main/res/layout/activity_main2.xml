@@ -12,21 +12,6 @@
         android:layout_height="@dimen/dp_150"
         android:gravity="bottom">
 
-        <!--<RelativeLayout-->
-        <!--android:id="@+id/tv_top"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="@dimen/dp_90"-->
-        <!--android:background="@color/red"-->
-        <!--android:minHeight="@dimen/dp_50"-->
-        <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
-
-        <!--<ImageView-->
-        <!--android:id="@+id/iv_photo"-->
-        <!--android:layout_width="@dimen/dp_60"-->
-        <!--android:layout_height="@dimen/dp_60"-->
-        <!--android:src="@mipmap/ic_launcher"-->
-        <!--android:layout_centerInParent="true"/>-->
-        <!--</RelativeLayout>-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_90"
@@ -170,37 +155,10 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_160"
-                android:background="@color/google_red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_160"
-                android:background="@color/google_yellow"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_160"
-                android:background="@color/google_green"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_160"
-                android:background="@color/google_blue"/>
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </android.support.design.widget.CoordinatorLayout>
